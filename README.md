@@ -2,7 +2,7 @@
 
 ## Links
 - [GitHub URL](https://github.com/sukanyagurav/contact-form)
-- [Live URL ](https://coffeelisting5867.netlify.app/)
+- [Live URL ](https://contactformapp5867.netlify.app/)
 
 
 | Contact form desktop view                                            |  Mobile View                                                       |
