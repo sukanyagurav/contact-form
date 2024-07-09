@@ -7,7 +7,7 @@
 
 | Contact form desktop view                                            |  Mobile View                                                       |
 | ----------------------                                               | ----------------------                                             |
-| <img src="./src/design/desktop-preview.jpg" width="100%" height="400" />  | <img src="./src/design/mobile-design.jpg.png" width="100%" height="400" /> |
+| <img src="./src/design/desktop-preview.jpg" width="100%" height="400" />  | <img src="./src/design/mobile-design.jpg" width="100%" height="400" /> |
 
 | Error state                                                          |  Success state                                                       |
 | ----------------------                                               | ----------------------                                             |
