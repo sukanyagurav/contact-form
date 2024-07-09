@@ -1,13 +1,10 @@
 import {z} from "zod";
 import { useForm } from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod"
-import { useEffect, useState } from "react";
 import succeses from './assets/images/icon-success-check.svg'
 import { Toaster, toast } from 'sonner'
 
-function MyIcon (){
-  return <img src={succeses} />
-}
+
 function App() {
   const schema = z.object({
     firstName:z.string().min(2,{ message:'First Name should have at least 2 characters'}),
