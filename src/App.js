@@ -17,7 +17,7 @@ function App() {
     type: z.string({message:'Please select a query type!'}).refine(val=> ['general_enquiry','support_request'].includes(val)),
   })
 
-  const {register,handleSubmit,formState:{errors,isValid},reset} = useForm({resolver:zodResolver(schema)})
+  const {register,handleSubmit,formState:{errors},reset} = useForm({resolver:zodResolver(schema)})
 
   
   function submitData(){
