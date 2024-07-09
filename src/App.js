@@ -3,19 +3,11 @@ import { useForm } from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod"
 import { useEffect, useState } from "react";
 import succeses from './assets/images/icon-success-check.svg'
+import { Toaster, toast } from 'sonner'
 
-function ShowToast(){
-  return <div className="toast">
-    <div className="toast__header flex-row">
-      <img src={succeses}  />
-      <h2>Messge Sent!</h2>
-    </div>
-    <div className="toast__body">
-      <p>Thanks for completing the form. We'll be in touch soon!</p>
-    </div>
-  </div>
+function MyIcon (){
+  return <img src={succeses} />
 }
-
 function App() {
   const schema = z.object({
     firstName:z.string().min(2,{ message:'First Name should have at least 2 characters'}),
@@ -27,32 +19,40 @@ function App() {
     }),
     type: z.string({message:'Please select a query type!'}).refine(val=> ['general_enquiry','support_request'].includes(val)),
   })
-  const [sent,setSent] = useState(false)
+
   const {register,handleSubmit,formState:{errors,isValid},reset} = useForm({resolver:zodResolver(schema)})
 
   
   function submitData(){
-    
-    setSent(true)
+
+    toast.custom((t) => (
+      <div>
+       <p className="flex-row"><img src={succeses} /> Message sent </p>
+       <p>Thanks for completing the form. we'll be in touch soon!</p>
+      </div>
+    ));
     reset()
   }
   return (
     <main>
-    {sent  && <ShowToast/>}
+
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit(submitData)}>
+      <Toaster  position="top-center"  toastOptions={{
+         className:'toast'
+      }} />
+      <form onSubmit={handleSubmit(submitData)} autocomplete="off">
         <div className="form__fields">
 
             <div className="form__field">
               <label htmlFor="firstName">First Name <sup>*</sup></label>
               <input type="text" id="firstName" 
-              {...register("firstName",{required:true})}/>
+              {...register("firstName",{required:true})} autocomplete="off"/>
               {errors.firstName && <span className="error" >{errors.firstName.message}</span>}
             </div>
 
             <div className="form__field">
               <label htmlFor="lastName">Last Name <sup>*</sup></label>
-              <input type="text" id="lastName"  {...register("lastName")} />
+              <input type="text" id="lastName"  {...register("lastName")}  autocomplete="off"/>
               {errors.lastName && <span   className="error">{errors.lastName.message}</span>}
 
             </div>
@@ -61,7 +61,7 @@ function App() {
         <div className="form__field">
 
           <label htmlFor="email">Email Address <sup>*</sup></label>
-          <input type="email" id="email"  {...register("email")} />
+          <input type="email" id="email"  {...register("email")} autocomplete="off" />
           {errors.email && <span   className="error">{errors.email.message}</span>}
         </div>
 
