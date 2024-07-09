@@ -24,7 +24,7 @@ function App() {
 
     toast.custom((t) => (
       <div>
-       <p className="flex-row"><img src={succeses} /> Message sent </p>
+       <p className="flex-row"><img src={succeses} alt="success icon" /> Message sent </p>
        <p>Thanks for completing the form. we'll be in touch soon!</p>
       </div>
     ));
